@@ -4,6 +4,8 @@ const cors = require('cors')
 const pinoLogger = require('./logger')
 const path = require('path')
 
+require('./util/import-mongo')
+
 const connectToDatabase = require('./models/db')
 
 const app = express()
