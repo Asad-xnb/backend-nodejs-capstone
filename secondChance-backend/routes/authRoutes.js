@@ -2,11 +2,13 @@ const express = require('express')
 const router = express.Router()
 const logger = require('../logger');
 const bcryptjs = require('bcryptjs')
+const dotenv = require('dotenv')
 const jwt = require('jsonwebtoken')
+dotenv.config()
 
 const connectToDatabase = require('../models/db')
 
-const JWT_SECRET = 'My_super_secret'
+const JWT_SECRET = process.env.JWT_SECRET
 router.post('/register', async (req, res) => {
     try {
         // Task 1: Connect to `secondChance` in MongoDB through `connectToDatabase` in `db.js`.
